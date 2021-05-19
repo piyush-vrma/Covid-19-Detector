@@ -25,8 +25,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  image_picker: ^0.6.7+14
-  tflite: ^1.1.1
+  image_picker: ^0.7.5+2
+  tflite: ^1.1.2
+  webview_flutter: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +44,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
