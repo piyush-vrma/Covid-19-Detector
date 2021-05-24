@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:covid19_detector/Widgets/custom_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -49,11 +50,14 @@ class _WebScreenState extends State<WebScreen> {
                 ),
               )
             : WebView(
-                javascriptMode: JavascriptMode.unrestricted,
                 initialUrl: 'https://www.covid19india.org',
                 onWebViewCreated: (WebViewController webViewController) {
                   _controller.complete(webViewController);
                 },
+                onProgress: (int progress) {
+                  print("WebView is loading (progress : $progress%)");
+                },
+                javascriptMode: JavascriptMode.unrestricted,
                 javascriptChannels: <JavascriptChannel>{
                   _toasterJavascriptChannel(context),
                 },

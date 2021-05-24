@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:covid19_detector/Widgets/backgroundWallpapers.dart';
 import 'package:covid19_detector/Widgets/custom_buttons.dart';
+import 'package:covid19_detector/Widgets/dialog.dart';
 import 'package:covid19_detector/Widgets/scrollBehaviour.dart';
 import 'package:covid19_detector/screens/faq.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +20,10 @@ class _MainScreenState extends State<MainScreen> {
   List _output;
   String result;
 
-  String covidMessage = 'I am covid Positive';
-  String normalMessage = 'I am covid negative';
+  String covidMessage =
+      'I am very sorry to tell you that today my corona test has come positive, if you have come in contact with me within the last 7 days, please get the test done as soon as possible and take as much precaution as you can.';
+  String normalMessage =
+      'I am glad to tell you that today my corona test has come negative by the grace of God.';
 
   @override
   void initState() {
@@ -161,14 +164,73 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.image),
         onPressed: () {
-          chooseImage();
+          showDialog(
+            context: context,
+            builder: (context) => Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(deviceHeight * .04),
+              ),
+              child: Container(
+                height: deviceHeight * 0.18,
+                width: deviceWidth * 0.7,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Select X-Ray Image',
+                      style: TextStyle(
+                        fontSize: deviceWidth * 0.05,
+                        color: Color(0xff7059FB),
+                      ),
+                    ),
+                    SizedBox(
+                      height: deviceHeight * 0.04,
+                    ),
+                    Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: deviceWidth * 0.035),
+                      //color: Colors.orange,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              // color: Colors.pink,
+                              child: DialogButton(
+                                onPressed: () {
+                                  chooseImage(source: ImageSource.camera);
+                                  Navigator.pop(context, false);
+                                },
+                                text: 'Camera',
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: DialogButton(
+                              onPressed: () {
+                                chooseImage(source: ImageSource.gallery);
+                                Navigator.pop(context, false);
+                              },
+                              text: 'Gallery',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+          //chooseImage();
         },
       ),
     );
   }
 
-  chooseImage() async {
-    var image = await ImagePicker().getImage(source: ImageSource.gallery);
+  chooseImage({source}) async {
+    var image = await ImagePicker().getImage(source: source);
     if (image != null) {
       setState(() {
         _isLoading = true;
