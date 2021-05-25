@@ -64,6 +64,16 @@ class DataSource {
           "Are antibiotics effective in preventing or treating the COVID-19?",
       "answer":
           "No. Antibiotics do not work against viruses, they only work on bacterial infections. COVID-19 is caused by a virus, so antibiotics do not work. Antibiotics should not be used as a means of prevention or treatment of COVID-19. They should only be used as directed by a physician to treat a bacterial infection. "
-    }
+    },
+    {
+      "question": "What are the basic prescription after become covid+ve?",
+      "answer":
+          "It can make you feel better and may speed your recovery.Stay home. \nDon't go to work, school, or public places.Drink fluids.You lose more water when you're sick.\n Dehydration can make symptoms worse and cause other health problems.Monitor.\n If your symptoms get worse, call your doctor right away. Don't go to their office without calling first. They might tell you to stay home, or they may need to take extra steps to protect staff and other patients.Ask your doctor about over-the-counter medicines that may help, like acetaminophen to lower your fever.\nThe most important thing to do is to avoid infecting other people, especially those who are over 65 or who have other health problems.\nThat means:\nTry to stay in one place in your home. Use a separate bedroom and bathroom if you can.Tell others you're sick so they keep their distance.\nCover your coughs and sneezes with a tissue or your elbow.\nWear a mask over your nose and mouth if you can.Wash regularly, especially your hands.Don't share dishes, cups, eating utensils, towels, or bedding with anyone else.Clean and disinfect common surfaces like doorknobs, counters, and tabletops."
+    },
+    {
+      "question": "what are the precautions of covid-19?",
+      "answer":
+          "To prevent the spread of COVID-19:\nClean your hands often. Use soap and water, or an alcohol-based hand rub.\nMaintain a safe distance from anyone who is coughing or sneezing.\nWear a mask when physical distancing is not possible.\nDon’t touch your eyes, nose or mouth.\nCover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.\nStay home if you feel unwell.\nIf you have a fever, cough and difficulty breathing, seek medical attention."
+    },
   ];
 }
